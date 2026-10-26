@@ -1,0 +1,286 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* ==========================================================================
+   1. GLOBAL OVERRIDES & MULTI-COLOR PREMIUM GRADIENT
+   ========================================================================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Forcing the background directly on html and body to kill any white screens */
+html, body {
+  min-height: 100vh !important;
+  width: 100% !important;
+  font-family: 'Inter', sans-serif !important;
+  color: #f3f4f6 !important;
+  margin: 0;
+  padding: 0;
+  
+  /* Rich combination of luxurious, deep dark primary colors */
+  background-color: #060814 !important; 
+  
+  /* Animated and multi-point Premium Mesh: Indigo, Deep Velvet, Violet, Royal Blue, with Golden-Amber and Coral Highlights */
+  background-image: 
+    radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.28) 0px, transparent 40%),
+    radial-gradient(at 100% 0%, rgba(6, 182, 212, 0.22) 0px, transparent 45%),
+    radial-gradient(at 100% 100%, rgba(139, 92, 246, 0.25) 0px, transparent 45%),
+    radial-gradient(at 0% 100%, rgba(244, 63, 94, 0.15) 0px, transparent 40%),
+    radial-gradient(circle at 50% 30%, rgba(30, 27, 75, 0.8), rgba(6, 8, 20, 1)) !important;
+  
+  background-attachment: fixed !important;
+  background-size: cover !important;
+}
+
+/* ==========================================================================
+   2. BACKGROUND MESH DECORATIVE ORBS (Layered Behind Tasks)
+   ========================================================================== */
+.todo-bg-layout {
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 15px;
+}
+
+/* Luminous Swirling Aura Left (Purple/Magenta) */
+.todo-bg-layout::before {
+  content: '';
+  position: absolute;
+  top: 15%;
+  left: -5%;
+  width: 450px;
+  height: 450px;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.35) 0%, rgba(244, 63, 94, 0.05) 50%, rgba(0, 0, 0, 0) 100%);
+  border-radius: 50%;
+  filter: blur(80px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Luminous Swirling Aura Right (Cyan/Gold) */
+.todo-bg-layout::after {
+  content: '';
+  position: absolute;
+  bottom: 10%;
+  right: -5%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(6, 182, 212, 0.3) 0%, rgba(245, 158, 11, 0.08) 50%, rgba(0, 0, 0, 0) 100%);
+  border-radius: 50%;
+  filter: blur(90px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.main-todo-container {
+  position: relative;
+  z-index: 2; /* Ensures content overlays seamlessly over background */
+}
+
+/* ==========================================================================
+   3. PREMIUM GLASS CARD & CONTENT STYLING
+   ========================================================================== */
+.todo-card {
+  background: rgba(13, 17, 33, 0.65) !important; /* Semi-transparent cosmic slate */
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  backdrop-filter: blur(30px) saturate(210%) !important;
+  -webkit-backdrop-filter: blur(30px) saturate(210%) !important;
+  border-radius: 28px !important;
+  box-shadow: 
+    0 30px 70px rgba(0, 0, 0, 0.75),
+    0 0 50px rgba(99, 102, 241, 0.12) !important; /* Elegant outer glow */
+}
+
+.app-title {
+  font-weight: 700;
+  color: #ffffff !important;
+  font-size: 1.85rem;
+  letter-spacing: -0.5px;
+}
+
+/* Beautiful color icon matches with user VK logo theme */
+.highlight-icon {
+  background: linear-gradient(135deg, #a5b4fc, #06b6d4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.app-subtitle {
+  font-size: 0.875rem;
+  color: #94a3b8 !important;
+}
+
+.task-counter-badge {
+  background: linear-gradient(135deg, #e11d48, #f59e0b) !important; /* Luxurious Rose Gold & Amber gradient */
+  font-weight: 600 !important;
+  padding: 8px 16px !important;
+  font-size: 0.8rem !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  box-shadow: 0 4px 15px rgba(225, 29, 72, 0.4) !important;
+  color: #ffffff !important;
+}
+
+/* ==========================================================================
+   4. FORM FIELDS & BUTTONS
+   ========================================================================== */
+.custom-input {
+  background: rgba(4, 7, 18, 0.7) !important;
+  border: 1px solid rgba(255, 255, 255, 0.14) !important;
+  color: #ffffff !important;
+  padding: 15px 20px !important;
+  height: auto !important;
+  border-radius: 14px 0 0 14px !important;
+  font-size: 0.95rem !important;
+}
+
+.custom-input:focus {
+  background: rgba(4, 7, 18, 0.95) !important;
+  border-color: #6366f1 !important;
+  color: #ffffff !important;
+  box-shadow: 0 0 15px rgba(99, 102, 241, 0.35) !important;
+}
+
+.custom-input::placeholder {
+  color: #475569 !important;
+}
+
+.btn-add-task {
+  background: linear-gradient(135deg, #6366f1, #06b6d4) !important;
+  color: #ffffff !important;
+  font-weight: 600 !important;
+  padding: 0 26px !important;
+  border-radius: 0 14px 14px 0 !important;
+  border: none !important;
+  transition: all 0.25s ease !important;
+}
+
+.btn-add-task:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 20px rgba(6, 182, 212, 0.45) !important;
+}
+
+/* ==========================================================================
+   5. NAVIGATION FILTERS & UTILITY BUTTONS
+   ========================================================================== */
+.btn-filter {
+  background: rgba(255, 255, 255, 0.05) !important;
+  color: #94a3b8 !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  padding: 6px 18px !important;
+  font-size: 0.85rem !important;
+  border-radius: 8px !important;
+  margin-right: 4px;
+  transition: all 0.25s ease !important;
+}
+
+.btn-filter:hover {
+  color: #ffffff !important;
+  background: rgba(255, 255, 255, 0.12) !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+.btn-filter.active {
+  background: linear-gradient(135deg, #6366f1, #4f46e5) !important;
+  color: #ffffff !important;
+  border-color: #6366f1 !important;
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3) !important;
+}
+
+#clear-completed {
+  color: #94a3b8 !important;
+  text-decoration: none !important;
+  font-size: 0.85rem !important;
+  transition: color 0.2s ease !important;
+}
+
+#clear-completed:hover {
+  color: #f43f5e !important; /* Warning rose-red */
+}
+
+/* ==========================================================================
+   6. PREMIUM TO-DO LIST ITEMS
+   ========================================================================== */
+.custom-todo-list {
+  max-height: 380px !important;
+  overflow-y: auto !important;
+}
+
+.custom-todo-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-todo-list::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.16) !important;
+  border-radius: 4px;
+}
+
+.todo-item {
+  background: rgba(255, 255, 255, 0.03) !important;
+  border: 1px solid rgba(255, 255, 255, 0.07) !important;
+  margin-bottom: 12px !important;
+  border-radius: 14px !important;
+  color: #f1f5f9 !important;
+  padding: 16px 20px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  transition: all 0.25s ease !important;
+}
+
+.todo-item:hover {
+  background: rgba(255, 255, 255, 0.06) !important;
+  border-color: rgba(99, 102, 241, 0.35) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Customized glowing checklist dots */
+.todo-checkbox {
+  width: 22px !important;
+  height: 22px !important;
+  accent-color: #06b6d4 !important;
+  cursor: pointer;
+  border-radius: 50% !important;
+}
+
+.todo-text {
+  flex-grow: 1 !important;
+  margin-left: 16px !important;
+  font-size: 0.95rem !important;
+  word-break: break-word !important;
+}
+
+/* Strike task list */
+.todo-item.completed .todo-text {
+  text-decoration: line-through !important;
+  color: #64748b !important;
+}
+
+.btn-delete {
+  color: #ef4444 !important;
+  background: rgba(239, 68, 68, 0.1) !important;
+  border: none !important;
+  border-radius: 10px !important;
+  width: 36px !important;
+  height: 36px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  transition: all 0.25s ease !important;
+}
+
+.btn-delete:hover {
+  background: rgba(239, 68, 68, 0.25) !important;
+  color: #f87171 !important;
+  transform: scale(1.05) !important;
+}
+
+.empty-icon {
+  font-size: 3rem !important;
+  color: #334155 !important;
+}

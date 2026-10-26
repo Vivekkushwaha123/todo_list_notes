@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task Flow | Personal To-Do App</title>
+  
+  <!-- Bootstrap 4.5.2 CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Background Animated Mesh Container -->
+  <div class="todo-bg-layout">
+    
+    <div class="container main-todo-container">
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-10 col-lg-7">
+          
+          <!-- Glassmorphism Card Container -->
+          <div class="todo-card p-4 p-md-5">
+            
+            <!-- App Header -->
+            <div class="d-flex justify-content-between align-items-center mb-4">
+              <div>
+                <h2 class="app-title m-0"><i class="fa-solid fa-list-check mr-2 highlight-icon"></i> My Tasks</h2>
+                <p class="app-subtitle text-muted m-0 mt-1" id="current-date">Organize your daily workflow</p>
+              </div>
+              <span class="badge badge-pill badge-primary task-counter-badge" id="task-counter">0 Tasks</span>
+            </div>
+
+            <!-- Input Form Section -->
+            <form id="todo-form" class="mb-4">
+              <div class="input-group">
+                <input 
+                  type="text" 
+                  id="todo-input" 
+                  class="form-control custom-input" 
+                  placeholder="What needs to be done today?" 
+                  autocomplete="off" 
+                  required 
+                />
+                <div class="input-group-append">
+                  <button type="submit" class="btn btn-add-task">
+                    <i class="fa-solid fa-plus mr-1"></i> Add
+                  </button>
+                </div>
+              </div>
+            </form>
+
+            <!-- Filters Toolbar -->
+            <div class="d-flex flex-wrap justify-content-between align-items-center mb-3 toolbar-section">
+              <div class="btn-group btn-group-sm mb-2 mb-sm-0" role="group">
+                <button type="button" class="btn btn-filter active" data-filter="all">All</button>
+                <button type="button" class="btn btn-filter" data-filter="active">Active</button>
+                <button type="button" class="btn btn-filter" data-filter="completed">Completed</button>
+              </div>
+              <button id="clear-completed" class="btn btn-link btn-sm text-muted p-0">Clear Completed</button>
+            </div>
+
+            <!-- Task List Area -->
+            <ul id="todo-list" class="list-group custom-todo-list">
+              <!-- Dynamic Task Items Will Render Here -->
+            </ul>
+
+            <!-- Empty State Illustration -->
+            <div id="empty-state" class="text-center py-5 d-none">
+              <i class="fa-regular fa-circle-check empty-icon mb-3"></i>
+              <p class="text-muted m-0">No tasks found! Enjoy your free time.</p>
+            </div>
+
+          </div> <!-- /todo-card -->
+
+        </div>
+      </div>
+    </div>
+
+  </div> <!-- /todo-bg-layout -->
+
+  <!-- JavaScript App Logic -->
+  <script src="vxy.js"></script>
+</body>
+</html>
